@@ -1,12 +1,12 @@
+from fastapi import FastAPI
 import gradio as gr
 
-def greet(name, intensity):
-    return "Hello, " + name + "!" * int(intensity)
+app = FastAPI()
 
-demo = gr.Interface(
-    fn=greet,
-    inputs=["text", "slider"],
-    outputs=["text"],
-)
+@app.get("/")
+def read_main():
+    return {"message": "This is your main app"}
+    
+io = gr.Interface(lambda x: "Hello, " + x + "!", "textbox", "textbox")
 
-demo.launch()
+app = gr.mount_gradio_app(app, io, path="/gradio")
