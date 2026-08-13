@@ -1,1 +1,2 @@
 gradio==5.49.1
+pip install https://gradio-builds.s3.amazonaws.com/f5a31fb00efcb5f4166526977adea52d357824a6/gradio-6.24.0-py3-none-any.whl
